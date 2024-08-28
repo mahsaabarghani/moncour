@@ -16,9 +16,9 @@ return new class extends Migration {
             $table->string('userName')->unique();
             //$table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('deleted_at');
             $table->rememberToken();
             $table->timestamps();
-            $table->softDeletes();
             $table->integer('role')->default(2); //2 for user , 1 for admin, 0 for super admin
         });
 

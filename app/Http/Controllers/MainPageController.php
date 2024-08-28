@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ContactUs;
 use App\Models\Packages;
 use App\Models\Products;
 use Illuminate\Http\Request;
@@ -16,7 +17,8 @@ class MainPageController extends Controller
         //
         $items = Products::all();
         $packages = Packages::all();
-        return view('index', compact('items','packages'));
+        $showContactMessages = ContactUs::all();
+        return view('index', compact('items','packages','showContactMessages'));
     }
 
     /**

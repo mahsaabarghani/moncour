@@ -40,9 +40,10 @@ class ProductPageController extends Controller
     public function show(string $id)
     {
         //
+        $items = Products::all();
         $input = Products::find($id);
         $packages = Packages::all();
-        return view('productPage', compact('input','packages'));
+        return view('productPage', compact('input','packages','items'));
     }
 
     /**

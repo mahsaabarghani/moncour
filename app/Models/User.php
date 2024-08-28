@@ -12,6 +12,8 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable, SoftDeletes;
 
+    protected $dates = ['deleted_at'];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -21,7 +23,7 @@ class User extends Authenticatable
         'name',
         'userName',
         'password',
-        'role'
+        'role',
     ];
 
     /**
@@ -44,7 +46,7 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
-            'deleted_at' =>'datetime'
+            'deleted_at' => 'datetime'
         ];
     }
 }

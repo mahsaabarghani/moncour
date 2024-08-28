@@ -1,121 +1,17 @@
-<!DOCTYPE html>
-<html lang='fa' dir="rtl">
-
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <title>KnightOne Bootstrap Template - Index</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-    <!-- Favicons -->
-    <link href={{"assets/img/favicon.png"}} rel="icon">
-    <link href={{"assets/img/apple-touch-icon.png"}} rel="apple-touch-icon">
-
-    <!-- Google Fonts -->
-    <link
-        href="{{asset('font.dash.css')}}"
-        rel="stylesheet">
-    <link
-        href="{{asset('fonts/iranyekan1.woff')}}"
-        rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
-    <link href='{{asset("assets/vendor/bootstrap/css/bootstrap.min.css")}}' rel="stylesheet">
-    <link href='{{asset("assets/vendor/bootstrap-icons/bootstrap-icons.css")}}' rel="stylesheet">
-    <link href='{{asset("assets/vendor/boxicons/css/boxicons.min.css")}}' rel="stylesheet">
-    <link href='{{asset("assets/vendor/glightbox/css/glightbox.min.css")}}' rel="stylesheet">
-    <link href='{{asset("assets/vendor/remixicon/remixicon.css")}}' rel="stylesheet">
-    <link href='{{asset("assets/vendor/swiper/swiper-bundle.min.css")}}' rel="stylesheet">
-
-    <!-- Template Main CSS File -->
-    <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
-
-    <!-- =======================================================
-    * Template Name: KnightOne
-    * Template URL: https://bootstrapmade.com/knight-simple-one-page-bootstrap-template/
-    * Updated: Mar 17 2024 with Bootstrap v5.3.3
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
-</head>
-
-<body>
-
-<!-- ======= Header ======= -->
-<header id="header" class="fixed-top ">
-    <div class="container-fluid">
-
-        <div class="row justify-content-center">
-            <div class="col-xl-9 d-flex align-items-center justify-content-lg-between">
-                <h1 class="logo me-auto me-lg-0"><a href="index.blade.php">زهرمار</a></h1>
-                <!-- Uncomment below if you prefer to use an image logo -->
-                <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-                <nav id="navbar" class="navbar order-last order-lg-0">
-                    <ul>
-                        <li><a class="nav-link scrollto active" href="#hero">خانه</a></li>
-                        <li><a class="nav-link scrollto" href="#services">خدمات</a></li>
-                        <li><a class="nav-link scrollto " href="#portfolio">نظرات</a></li>
-                        <li><a class="nav-link scrollto" href="#pricing">قیمت ها</a></li>
-                        <li class="dropdown"><a href="#"><span>دسترسی سریع به خدمات </span> <i
-                                    class="bi bi-chevron-down"></i></a>
-                            <ul>
-                                @foreach($items as $item)
-                                    <li><a href="{{route('product.show', $item->id)}}">
-                                            بسته ی   {{$item->name}}</a></li>
-                                @endforeach
-{{--                                <li class="dropdown"><a href="#"><span>سفارشی</span> <i--}}
-{{--                                            class="bi bi-chevron-right"></i></a>--}}
-{{--                                    <ul>--}}
-{{--                                        <li><a href="#">Deep Drop Down 1</a></li>--}}
-{{--                                        <li><a href="#">Deep Drop Down 2</a></li>--}}
-{{--                                        <li><a href="#">Deep Drop Down 3</a></li>--}}
-{{--                                        <li><a href="#">Deep Drop Down 4</a></li>--}}
-{{--                                        <li><a href="#">Deep Drop Down 5</a></li>--}}
-{{--                                    </ul>--}}
-{{--                                </li>--}}
-                            </ul>
-                        </li>
-                        <li><a class="nav-link scrollto" href="#about">درباره ما</a></li>
-                        <li><a class="nav-link scrollto" href="#contact">تماس با ما</a></li>
-                    </ul>
-                    <i class="bi bi-list mobile-nav-toggle"></i>
-                </nav><!-- .navbar -->
-
-                <li>
-                    @if(Illuminate\Support\Facades\Auth::check())
-                        <a href="{{route('logout')}}" class="get-started-btn scrollto">خروج</a>
-                        <a href="{{ route('profile.edit') }}" class="get-started-btn scrollto">پروفایل</a>
-                    @else
-                        <a href="{{route('login')}}" class="get-started-btn scrollto">ورود</a>
-                        <a href="{{route('register')}}" class="get-started-btn scrollto">ثبت نام</a>
-                    @endif
-
-                </li>
+@extends('layouts.header')
+@section('body')
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex flex-column justify-content-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-8">
+                    <h1>moncoor</h1>
+                    <h2>سلام</h2>
+                    <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
+                </div>
             </div>
         </div>
-
-    </div>
-</header><!-- End Header -->
-
-<!-- ======= Hero Section ======= -->
-<section id="hero" class="d-flex flex-column justify-content-center">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-xl-8">
-                <h1>moncoor</h1>
-                <h2>سلام</h2>
-                <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox play-btn mb-4"></a>
-            </div>
-        </div>
-    </div>
-</section><!-- End Hero -->
-
-<main id="main">
-
-
+    </section><!-- End Hero -->
     <!-- ======= خدمات ======= -->
     <section id="services" class="services">
         <div class="container">
@@ -201,121 +97,6 @@
 
         </div>
     </section><!-- End Counts Section -->
-
-    <!-- ======= نظرات شما ======= -->
-    <section id="portfolio" class="portfolio">
-        <div class="container">
-
-            <div class="section-title">
-                <h2>نظرات شما</h2>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-12 d-flex justify-content-center">
-                    <ul id="portfolio-flters">
-                        <li data-filter="*" class="filter-active">همه</li>
-                        <li data-filter=".filter-app">جدیدترین</li>
-                        <li data-filter=".filter-card">مفیدترین</li>
-                    </ul>
-                    <ul id="portfolio-flters">
-                        <li data-filter=".filter-web">مشاهده بیشتر
-                            <i class="bx bx-plus"></i>
-                        </li>
-
-                    </ul>
-                </div>
-            </div>
-
-            <div class="row portfolio-container">
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <img src="{{asset('assets/img/portfolio/portfolio-1.jpg')}}" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>بسته ی خریداری شده</h4>
-                        <p>نام خریدار</p>
-                        <a href="#"><i style="font-size:25px;" class="bx bx-like "></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <img src="{{asset('assets/img/portfolio/portfolio-2.jpg')}}" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>بسته ی خریداری شده</h4>
-                        <p>نام خریدار</p>
-                        <a href="#"><i style="font-size:25px;" class="bx bx-like "></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <img src="{{asset('assets/img/portfolio/portfolio-3.jpg')}}" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>بسته ی خریداری شده</h4>
-                        <p>نام خریدار</p>
-                        <a href="#"><i style="font-size:25px;" class="bx bx-like "></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img src="{{asset('assets/img/portfolio/portfolio-4.jpg')}}" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>بسته ی خریداری شده</h4>
-                        <p>نام خریدار</p>
-                        <a href="#"><i style="font-size:25px;" class="bx bx-like "></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <img src="{{asset('assets/img/portfolio/portfolio-5.jpg')}}" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>بسته ی خریداری شده</h4>
-                        <p>نام خریدار</p>
-                        <a href="#"><i style="font-size:25px;" class="bx bx-like "></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                    <img src="{{asset('assets/img/portfolio/portfolio-6.jpg')}}" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>بسته ی خریداری شده</h4>
-                        <p>نام خریدار</p>
-                        <a href="#"><i style="font-size:25px;" class="bx bx-like "></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img src="{{asset('assets/img/portfolio/portfolio-7.jpg')}}" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>بسته ی خریداری شده</h4>
-                        <p>نام خریدار</p>
-                        <a href="#"><i style="font-size:25px;" class="bx bx-like "></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                    <img src="{{asset('assets/img/portfolio/portfolio-8.jpg')}}" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>بسته ی خریداری شده</h4>
-                        <p>نام خریدار</p>
-                        <a href="#"><i style="font-size:25px;" class="bx bx-like "></i></a>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-                    <img src="{{asset('assets/img/portfolio/portfolio-9.jpg')}}" class="img-fluid" alt="">
-                    <div class="portfolio-info">
-                        <h4>بسته ی خریداری شده</h4>
-                        <p>نام خریدار</p>
-                        <a href="#"><i style="font-size:25px;" class="bx bx-like "></i></a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </section>
-    <!-- پایان نظرات -->
-
-
     <!-- ======= قیمت ها ======= -->
     <section id="pricing" class="pricing">
         <div class="container">
@@ -323,10 +104,11 @@
                 <h2>قیمت ها</h2>
             </div>
 
-            <div class="row ">
+            <div class="row">
                 @foreach($packages as $package)
-                    <div class="col-lg-3 col-md-6 mt-4">
-                        <div class="box @if($package->id === 1) recommended @endif">
+                    <div class="col-lg-3 col-md-6 mt-4" style="display: flex; flex-direction: column;">
+                        <div class="box @if($package->id === 1) recommended @endif"
+                             style="flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between;">
                             @if($package->id ===1)
                                 <span class="recommended-badge">پیشنهادِ moncoeur</span>
                             @endif
@@ -349,12 +131,55 @@
                         </div>
                     </div>
                 @endforeach
-
             </div>
         </div>
     </section>
 
     <!-- پایان قیمت ها -->
+    <!-- ======= نظرات شما ======= -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>نظرات شما</h2>
+            </div>
+
+            <div>
+                <div class="row portfolio-container">
+                    @if($showContactMessages->isEmpty())
+                        <div class="col-12">
+                            <p style="text-align: center;font-weight: bolder;color: #0f5132;font-size: larger">نظری وجود
+                                ندارد</p>
+                        </div>
+                    @else
+                        @php
+                            $count = 0;
+                        @endphp
+                        @foreach($showContactMessages as $showContactMessage)
+                            @if($count == 9)
+                                @break
+                            @endif
+                            <div class="col-md-3 portfolio-item filter-app portfolio-box" style="height: 150px;">
+                                {{-- <img src="{{asset('assets/img/portfolio/portfolio-1.jpg')}}" class="img-fluid" alt=""> --}}
+                                <p>{{$showContactMessage->message}}</p>
+                                <div class="portfolio-info">
+                                    <h4>{{$showContactMessage->subject}}</h4>
+                                    <p>{{$showContactMessage->name}}</p>
+                                    <a href="#"><i style="font-size:25px;" class="bx bx-like"></i></a>
+                                </div>
+                            </div>
+                            @php
+                                $count+=1;
+                            @endphp
+                        @endforeach
+                    @endif
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- پایان نظرات -->
+
+
+
 
     <!-- ======= About Us Section ======= -->
     <section id="about" class="about">
@@ -362,42 +187,37 @@
 
             <div class="section-title">
                 <h2>درباره ما</h2>
-                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                    consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                    fugiat sit in iste officiis commodi quidem hic quas.</p>
+                <p>
+                    ما یک وب‌سایت انگیزشی هستیم که بسته‌های پیامکی انگیزشی ارائه می‌دهیم. هدف ما این است که به شما کمک
+                    کنیم هر روز با انرژی و انگیزه شروع کنید و در طول روز با پیام‌های انگیزشی همراه شما باشیم.
+                </p>
             </div>
 
             <div class="row content">
                 <div class="col-lg-6">
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore
-                        magna aliqua.
+                        با خرید بسته‌های پیامکی ما، در هر ساعتی از روز پیامک‌های انگیزشی دریافت خواهید کرد که به شما کمک
+                        می‌کند به اهداف خود برسید و همیشه با انگیزه بمانید.
                     </p>
-                    <ul>
-                        <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat
-                        </li>
-                        <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate
-                            velit
-                        </li>
-                        <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat
-                        </li>
-                    </ul>
+                    <a href="#" class="btn-learn-more">بیشتر بدانید</a>
+
+
                 </div>
                 <div class="col-lg-6 pt-4 pt-lg-0">
-                    <p>
-                        Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-                        in voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                        proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                    <a href="#" class="btn-learn-more">Learn More</a>
+                    <ul>
+                        <li>
+                            <div>دریافت پیام‌های انگیزشی روزانه</div>
+                            <i class="ri-check-double-line"></i></li>
+                        <li><i class="ri-check-double-line"></i> امکان فعالسازی هدیه برای دیگران</li>
+                        <li><i class="ri-check-double-line"></i> پشتیبانی ۲۴ ساعته</li>
+                    </ul>
                 </div>
             </div>
 
         </div>
-    </section><!-- End About Us Section -->
+    </section>
+    <!-- End About Us Section -->
+
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -450,11 +270,11 @@
                             </div>
                         </div>
                         <div class="form-group mt-3">
-                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"
+                            <input type="text" class="form-control" name="subject" id="subject" placeholder="موضوع"
                                    required>
                         </div>
                         <div class="form-group mt-3">
-                            <textarea class="form-control" name="message" rows="5" placeholder="Message"
+                            <textarea class="form-control" name="message" id="message" rows="5" placeholder="متن پیام"
                                       required></textarea>
                         </div>
                         @if(session('success'))
@@ -608,48 +428,4 @@
 
         </div>
     </section><!-- End Faq Section -->
-</main><!-- End #main -->
-<br>
-
-
-<!-- ======= Footer ======= -->
-<footer id="footer">
-    <div class="container">
-        <h3>Moncoeur</h3>
-        <div class="social-links">
-            <a href="#" class="telegram"><i class="bx bxl-telegram"></i></a>
-            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-            <a href="#" class="google-plus"><i class="bx bxl-whatsapp"></i></a>
-            <a href="#" class="google-plus"><i class="bx bxl-gmail"></i></a>
-        </div>
-        <div class="copyright">
-            تمامی حقوق مادی و معنوی این سایت متعلق به Moncoeur می باشد و هرگونه کپی برداری غیرقانونی محسوب خواهد شد
-        </div>
-        <div class="credits">
-            <!-- All the links in the footer should remain intact. -->
-            <!-- You can delete the links only if you purchased the pro version. -->
-            <!-- Licensing information: https://bootstrapmade.com/license/ -->
-            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/knight-simple-one-page-bootstrap-template/ -->
-            طراحی شده توسط <a href="https://bornacti.ir/" target="_blank">bornacti.ir</a>
-        </div>
-    </div>
-</footer><!-- End Footer -->
-
-<div id="preloader"></div>
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-        class="bi bi-arrow-up-short"></i></a>
-
-<!-- Vendor JS Files -->
-<script src="{{asset('assets/vendor/purecounter/purecounter_vanilla.js')}}"></script>
-<script src="{{asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
-<script src="{{asset('assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
-<script src="{{asset('assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
-<script src="{{asset('assets/vendor/php-email-form/validate.js')}}"></script>
-
-<!-- Template Main JS File -->
-<script src="{{asset('assets/js/main.js')}}"></script>
-
-</body>
-
-</html>
+@endsection

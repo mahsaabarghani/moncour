@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ContactUs;
+use App\Models\messages;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
-class ContactUsController extends Controller
+class AdminMessageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class ContactUsController extends Controller
     public function index()
     {
         //
-        return view('index');
+        return view('admin.createMessage');
+
     }
 
     /**
@@ -31,17 +32,16 @@ class ContactUsController extends Controller
     public function store(Request $request)
     {
         //
-        $ContactInput = $request->all();
-        ContactUs::create(
+        $messageInput = $request->all();
+        messages::create(
             [
-                'name' => $ContactInput['name'],
-                'email' => $ContactInput['email'],
-                'subject' => $ContactInput['subject'],
-                'message' => $ContactInput['message'],
+                'time' => $messageInput['time'],
+                'title' => $messageInput['title'],
+                'body' => $messageInput['body'],
             ]
         );
-        Session::flash('success', 'پیام شما با موفقیت ارسال شد.');
-        return redirect(route('main.index').'#contact');
+        Session::flash('success', 'پیام جدید با موفقیت ایجاد شد.');
+        return redirect(route('admin.index') . '#messageManagement');
     }
 
     /**
@@ -74,5 +74,17 @@ class ContactUsController extends Controller
     public function destroy(string $id)
     {
         //
+        $input = messages::find($id);
+        $input->delete();
+        Session::flash('success', 'با موفقیت حذف شد. ');
+        return redirect()->route('admin.index').'#messageManagement';
+    }
+
+    public function restore(string $id)
+    {
+        $restoreInputs = messages::withTrashed()->findOrFail($id);
+        $restoreInputs->restore();
+        Session::flash('success', 'کاربر با موفقیت بازگردانده شد.');
+        return redirect()->back();
     }
 }

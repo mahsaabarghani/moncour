@@ -75,56 +75,20 @@
         a.btn:hover {
             opacity: 0.8;
         }
-
-        .alert {
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid transparent;
-            border-radius: 4px;
-        }
-
-        .alert-success {
-            color: #155724;
-            background-color: #d4edda;
-            border-color: #c3e6cb;
-        }
-
-        .alert-danger {
-            color: #721c24;
-            background-color: #f8d7da;
-            border-color: #f5c6cb;
-        }
     </style>
 </head>
 
 <body>
-@if(session('success'))
-    <div class="alert alert-success" style="text-align: center;">
-        کاربر با موفقیت ایجاد شد!
-    </div>
-@endif
 
-@if(session('error'))
-    <div class="alert alert-danger" style="text-align: center;">
-        {{ session('error') }}
-    </div>
-@endif
-{{$errors}}
-@foreach ($errors->all() as $error)
-    <div class="alert alert-danger" style="text-align: center;">
-        {{ $error}}
-    </div>
-
-@endforeach
 <div class="container">
-
-    <form action="{{ route('user.store') }}" method="post">
+    <form action="{{ route('adminStoreMessage.index') }}" method="post">
         @csrf
-        <input type="text" name="name" placeholder="نام">
-        <input type="text" name="userName" placeholder="شماره تماس">
-        <button type="submit">ایجاد کاربر جدید</button>
+        <input type="text" name="time" placeholder="زمان">
+        <input type="text" name="title" placeholder="عنوان">
+        <input type="text" name="body" placeholder="متن پیام">
+        <button type="submit">ایجاد پیام جدید</button>
     </form>
-    <a href="{{ route('admin.index').'#userManagement' }}" class="btn btn-danger cancel">انصراف</a>
+    <a href="{{ route('admin.index').'#messageManagement' }}" class="btn btn-danger cancel">انصراف</a>
 </div>
 
 <!-- Vendor JS Files -->

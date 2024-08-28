@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\ProductPageController;
+use App\Http\Controllers\AdminMessageController;
+use App\Http\Controllers\AdminUserController;
 
 //Route::get('/', function () {
 //    return view('index');
@@ -21,13 +23,27 @@ Route::get('/dashboard', function () {
 
 Route::get('/logout', function () {
     Illuminate\Support\Facades\Auth::logout();
-    return redirect()->back();
+    return redirect('/');
 })->name('logout');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    /////////////////////ADMIN PAGE
+    Route::get('/admin', [\App\Http\Controllers\AdminUserController::class, 'index'])->name('admin.index');
+
+/////////////////////AdminUserController
+    Route::get('/createUser', [AdminUserController::class, 'create'])->name('user.create');
+    Route::post('/storeUser', [AdminUserController::class, 'store'])->name('user.store');
+    Route::get('/destroyUser/{id}', [AdminUserController::class, 'destroy'])->name('user.destroy');
+    Route::get('/restoreUser/{id}', [AdminUserController::class, 'restore'])->name('user.restore');
+
+/////////////////////AdminMessageController
+    Route::get('/createMessage', [AdminMessageController::class, 'index'])->name('adminCreateMessage.index');
+    Route::post('/saveCreatedMessage', [AdminMessageController::class, 'store'])->name('adminStoreMessage.index');
+    Route::get('/destroyMessage/{id}', [AdminMessageController::class, 'destroy'])->name('adminDestroyMessage.destroy');
+    Route::get('/restoreMessage/{id}', [AdminMessageController::class, 'restore'])->name('adminRestoreMessage.restore');
 });
 
 
@@ -39,5 +55,6 @@ Route::post('/contact', [ContactUsController::class, 'store'])->name('contact.st
 /////////////////////PRODUCT PAGE
 //Route::get('/product', [ProductPageController::class, 'index'])->name('product.index');
 Route::get('/product/{id}', [ProductPageController::class, 'show'])->name('product.show');
+
 
 require __DIR__ . '/auth.php';
